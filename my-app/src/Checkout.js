@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import AppBar from '@material-ui/core/AppBar';
@@ -14,7 +15,12 @@ import AddressForm from './AddressForm';
 import PaymentForm from './PaymentForm';
 import Review from './Review';
 
+
+let stuff = {monTitre: "VA TE FAIRE EMPULER",
+                truc:2}
+
 function Copyright() {
+  
   return (
     <Typography variant="body2" color="textSecondary" align="center">
       {'Copyright © '}
@@ -64,12 +70,13 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const steps = ['Shipping address', 'Payment details', 'Review your order'];
+const steps = ['Mes genoux', 'Salut toi', 'Review your order'];
 
 function getStepContent(step) {
+  console.log(step)
   switch (step) {
     case 0:
-      return <AddressForm />;
+      return <AddressForm {...stuff} />;
     case 1:
       return <PaymentForm />;
     case 2:
@@ -97,14 +104,14 @@ export default function Checkout() {
       <AppBar position="absolute" color="default" className={classes.appBar}>
         <Toolbar>
           <Typography variant="h6" color="inherit" noWrap>
-            Company name
+            Mohamed EL YAHYAOUI
           </Typography>
         </Toolbar>
       </AppBar>
       <main className={classes.layout}>
         <Paper className={classes.paper}>
           <Typography component="h1" variant="h4" align="center">
-            Checkout
+           {classes.stepper}
           </Typography>
           <Stepper activeStep={activeStep} className={classes.stepper}>
             {steps.map((label) => (
@@ -117,7 +124,7 @@ export default function Checkout() {
             {activeStep === steps.length ? (
               <React.Fragment>
                 <Typography variant="h5" gutterBottom>
-                  Thank you for your order.
+                  Salut toiiii.
                 </Typography>
                 <Typography variant="subtitle1">
                   Your order number is #2001539. We have emailed your order confirmation, and will

@@ -5,11 +5,12 @@ import TextField from '@material-ui/core/TextField';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 
-export default function AddressForm() {
+export default function AddressForm(props) {
+ 
   return (
     <React.Fragment>
       <Typography variant="h6" gutterBottom>
-        Shipping address
+        {props.monTitre}
       </Typography>
       <Grid container spacing={3}>
         <Grid item xs={12} sm={6}>
@@ -25,9 +26,12 @@ export default function AddressForm() {
         <Grid item xs={12} sm={6}>
           <TextField
             required
-            id="lastName"
-            name="lastName"
-            label="Last name"
+            {...{id:"lastName",
+            name:"lastName",
+            label:"Sucreur de mite"
+        }}
+            
+           
             fullWidth
             autoComplete="family-name"
           />
